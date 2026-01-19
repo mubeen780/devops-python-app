@@ -15,13 +15,16 @@ jobs:
       run: docker build -t devops-app .
 
     - name: Deploy to EC2
-      uses: appleboy/ssh-action@v1
-      with:
-        host: ${{ secrets.EC2_IP }}
-        username: ubuntu
-        key: ${{ secrets.EC2_KEY }}
-        script: |
-          cd devops-python-app
-          git pull origin main
-          docker compose down
-          docker compose up -d --build
+  uses: appleboy/ssh-action@v1
+  with:
+    host: ${{ secrets.EC2_IP }}
+    username: ubuntu
+    key: ${{ secrets.EC2_KEY }}
+    port: 22
+    script: |
+      cd ~
+      cd devops-python-app
+      git pull origin main
+      docker-compose down
+      docker-compose up -d --build
+
