@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Python App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #eaeaea;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Management App</h2>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter user name" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <h3>Users List</h3>
+    <ul>
+        {% for user in users %}
+            <li>{{ user[1] }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
